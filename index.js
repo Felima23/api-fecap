@@ -13,10 +13,10 @@ app.use(bodyParser.json());
 
 //Criando a conexão com o banco de dados
 const db = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'',
-    database:'androidbd'
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'androidbd'
 });
 // Testando a conexão com o banco de dados
 db.connect(err => {
